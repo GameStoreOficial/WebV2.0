@@ -479,3 +479,9 @@ footer{
     }
 }
 
+@media (max-width: 405px){
+    .redes{
+        width: 100%;
+    }
+}
+
