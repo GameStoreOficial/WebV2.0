@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 30%;
+            height: 30%;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="input" accept="image/*">
+    <button id="boton">Click</button>
+</body>
+<script>
+    const input = document.getElementById("input");
+    const boton = document.getElementById("boton");
+    let src
+
+    input.addEventListener("change", function(e){
+        file = e.target.files[0];
+
+        if (file) {
+            src = URL.createObjectURL(file); 
+        }
+    });
+
+    boton.addEventListener("click", function(){
+        imganen = document.createElement("img");
+        imganen.src = src;
+        document.body.appendChild(imganen)
+    })
+</script>
+</html>

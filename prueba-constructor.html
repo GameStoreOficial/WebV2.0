@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #Botoncrear{
+            position: absolute;
+            background-color: rgb(155, 255, 54);
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            left: 10px;
+            top: 10px;
+        }
+
+        #Botoncrear:hover{
+            background-color: rgb(155, 235, 54);
+        }
+
+        #element{
+            width: 220px;
+            height: 250px;
+            background-color: burlywood;
+            border-radius: 10px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #element-img{
+            width: 90%;
+            height: 45%;
+            background-color: gray;
+            margin-bottom: 5%;
+        }
+
+        #element-img img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #element-title{
+            width: 90%;
+            height: 25%;
+            background-color: gray;
+            margin-bottom: 5%;
+        }
+
+        #element-title h2{
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #element-price{
+            display: flex;
+            align-items: center;
+            background-color: gray;
+            width: 90%;
+            height: 10%;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button {
+            display: none;
+        }
+
+        .titulo{
+            display: flex;
+            height: 30px;
+            align-items: center;
+        }
+
+        .imagen{
+            display: flex;
+            align-items: center;
+        }
+
+        .imagen input{
+            padding: 2px;
+            border-bottom: 1px solid black;
+            margin-left: 5px;
+        }
+
+        .titulo input{
+            margin-left: 5px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid black;
+            transition: border-bottom-color .2s;
+        }
+
+        .titulo input:focus{
+            border-bottom-color: rgb(169, 211, 105);
+            transition: border-bottom-color .2s;
+        }
+
+        .precio{
+            display: flex;
+            align-items: center;
+        }
+
+        .precio input{
+            margin-left: 5px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid black;
+            transition: border-bottom-color .2s;
+        }
+
+        .precio input:focus{
+            border-bottom-color: rgb(169, 211, 105);
+            transition: border-bottom-color .2s;
+        }
+
+        p{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #formulario{
+            display: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #price{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <buttom id="Botoncrear">Nuevo Juego</buttom>
+
+    <div id="element">
+        <div id="element-img"><img id="img"></div>
+        <div id="element-title"><h2 id="element-titulo"></h2></div>
+        <div id="element-price"><p id="price"></p></div>
+    </div>
+
+    <div id="formulario">
+        <form>
+            <div class="imagen">
+                <p>Portada</p>
+                <input type="file" placeholder="Subir portada" accept="image/*" id="imagen">
+            </div>
+
+            <div class="titulo">
+                <p>Título</p>
+                <input type="text" id="titulo">
+            </div>
+
+            <div class="precio">
+                <p>Precio</p>
+                <input type="number" id="precio">
+            </div>
+
+            <center><button id="crear">Crear</button></center>
+        </form>
+    </div>
+
+
+    <img src="blob:null/124bfa15-8a69-4609-940a-6db73f4114c8" alt="error">
+</body>
+<script>
+
+    const imagenInput = document.getElementById("imagen");
+    const titulo = document.getElementById("titulo");
+    const precio = document.getElementById("precio");
+    const crear = document.getElementById("crear");
+    const form = document.getElementById("formulario");
+    let img = document.getElementById("img");
+    let url = "";
+    const botonCrear = document.getElementById("Botoncrear").addEventListener("click", function(){
+        form.style.display = "block";
+    });
+    
+    imagenInput.addEventListener("change", function(e){
+        let files = e.target.files[0];
+
+        if (files) {
+            url = URL.createObjectURL(files);
+            img.src = url;
+            img.style.display = "block";
+        }
+    })
+
+    crear.addEventListener("click", function(event) {
+    event.preventDefault();
+    if (titulo.value == "" || precio.value == "") {
+        alert("Asegúrese de rellenar los datos");
+    }
+
+    else{
+        let element = document.createElement("div");
+        element.id = "element"
+        document.body.appendChild(element)
+        element.style.display = "flex";
+
+        let elementImg = document.createElement("div");
+        elementImg.id = "element-img";
+        element.appendChild(elementImg);
+
+        let img = document.createElement("img");
+        img.src = url;
+        img.id = "img";
+        elementImg.appendChild(img);
+
+        let elementTitle = document.createElement("div");
+        elementTitle.id = "element-title";
+        element.appendChild(elementTitle);
+
+        let Title = document.createElement("h2");
+        Title.id = "element-titulo";
+        Title.textContent = titulo.value;
+        elementTitle.appendChild(Title);
+
+        let ElementPrice = document.createElement("div");
+        ElementPrice.id = "element-price";
+        element.appendChild(ElementPrice);
+
+        let price = document.createElement("p");
+        price.id = "price";
+        price.textContent = "$" + precio.value;
+        ElementPrice.appendChild(price);
+    
+        alert("hola"+url);
+    }
+});
+</script>
+</html>

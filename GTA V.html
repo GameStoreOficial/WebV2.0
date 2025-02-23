@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Game Store</title>
+</head>
+<body>
+    <header id="header">
+        <div class="content-logo"></div>
+        <div class="content-search">
+            <input type="text" id="search" placeholder="Buscar...">
+            <div id="content-icon-search"><i class="fa-solid fa-magnifying-glass" style="color: white;" id="icon-search"></i></div>
+        </div>
+        <div class="content-account">
+            <div id="account"><i class="fa-solid fa-user"></i></div>
+        </div>
+        <a href="index.html" class="logo"></a>
+    </header>
+
+    <i class="fa-solid fa-bars" id="bars"></i>
+
+    <div class="left-menu">
+        <ul>
+            <a href=""><li>Inicio</li></a>
+            <li id="categorias">Categorías <i class="fa-solid fa-caret-down" style="padding-left: 10px;"></i>
+                <ul id="sub-categorias">
+                    <a href=""><li>Acción</li></a>
+                    <a href=""><li>Aventuras</li></a>
+                    <a href=""><li>Autos</li></a>
+                    <a href=""><li>Battle Royale</li></a>
+                    <a href=""><li>Supervivencia</li></a>
+                </ul>
+            </li>
+            <li id="productoras">Productoras <i class="fa-solid fa-caret-down" style="padding-left: 10px;"></i>
+                <ul id="sub-productoras">
+                    <a href=""><li>Rockstar Games</li></a>
+                    <a href=""><li>Epic Games</li></a>
+                    <a href=""><li>EA</li></a>
+                </ul>
+            </li>
+            <a href=""><li>Nuevos</li></a>
+        </ul>
+    </div>
+
+    <div class="body"></div>
+</body>
+    <script src="scripts.js"></script>
+</html>
