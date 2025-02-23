@@ -1,0 +1,486 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    flex-direction: column;
+    background-color: rgb(10, 10, 10);
+}
+
+#header{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.925);
+    width: 100%;
+    height: 60px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 5;
+}
+
+.content-logo{
+    position: relative;
+    background-size: 120px;
+    background-position: -15px;
+    width: 90px;
+    height: 60px;
+    left: 40px;
+    z-index: 5;
+}
+
+.logo{
+    position: absolute;
+    background-image: url("Logo-removebg-preview.png");
+    background-size: 120px;
+    background-position: -15px;
+    width: 90px;
+    height: 60px;
+    left: 60px;
+    z-index: 8;
+}
+
+.content-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+}
+
+.content-account{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-menu{
+    background-color: rgba(3, 3, 3, 0.925);
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    transform: translateX(-300px);
+    transition: transform .3s;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left-menu ul{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: white;
+}
+
+.left-menu ul li{
+    padding: 10px 15px;
+    border-radius: 7px;
+}
+
+.left-menu ul li:hover{
+    background-color: rgba(214, 214, 214, .2);
+    cursor: pointer;
+}
+
+.sub-categoria, .sub-productora{
+    padding-left: 30px !important;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height .8s;
+}
+
+.categoria, .productora{
+    user-select: none;
+}
+
+#icon-categoria, #icon-productora{
+    transition: transform .8s;
+    margin-left: 10px;
+}
+
+.content-all-element{
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 250px;
+}
+
+#element{
+    background-color: rgb(4, 4, 4, 1);
+    position: relative;
+    height: 250px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform .3s, box-shadow .3s;
+    color: white;
+}
+
+#element:hover{
+    transform: translateY(-10px);
+    transition: transform .3s, box-shadow .3s;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.content-all-element a{
+    display: inline-block;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#img-element{
+    width: 100%;
+    height: 55%;
+    margin-bottom: 10px;
+    background-size: cover;
+}
+
+#img-element img{
+    width: 100%;
+    height: 100%;
+}
+
+#content-title-element{
+    width: 100%;
+    height: 30%;
+    margin-bottom: 10px;
+}
+
+#content-title-element h2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+#price-element{
+    width: 100%;
+    height: 10%;
+}
+
+#bars{
+    position: fixed;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    left: 10px;
+    cursor: pointer;
+    z-index: 10;
+    top: 10px;
+    color: white;
+}
+
+#bars:hover{
+    background-color: rgba(82, 82, 82, .6);
+}
+
+#search{
+    outline: none;
+    width: 85%;
+    height: 30px;
+    border: none;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 10px;
+    border: 2px solid rgba(36, 36, 36, 0.925);
+    background-color: rgba(36, 36, 36, 0.925);
+    transition: background .3s;
+    
+}
+
+#search:focus{
+    background-color: rgb(49, 49, 49, 0.925);
+    outline: none;
+    color: white;
+}
+
+#content-icon-search{
+    width: 15%;
+    height: 36px;
+    background-color: rgb(36, 36, 36);
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#account{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#sub-categorias{
+    transition: max-height .3s;
+    overflow: hidden;
+    max-height: 0px;
+}
+
+#sub-productoras{
+    transition: max-height .3s;
+    overflow: hidden;
+    max-height: 0px;
+}
+
+footer{
+    background-color: black;
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    position: relative;
+    left: 0px;
+    margin-top: 20px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+#icon-categorias, #icon-productoras{
+    padding-right: 10px;
+    transition: transform .2s;
+}
+
+.redes{
+    width: 400px;
+    height: 50px;
+    border-bottom: 2px solid white;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.redes i{
+    color: white;
+}
+
+.otros a{
+    color: white;
+    padding: 1px;
+}
+.content-other{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mision-vision, .valores, .otros{
+    width: 400px;
+    height: 520px;
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.mision, .vision{
+    padding: 10px;
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+}
+
+#menu-account{
+    background: rgba(3, 3, 3, 0.925);
+    color: white;
+    top: 60px;
+    right: 25px;
+    width: 300px;
+    height: auto;
+    position: fixed;
+    z-index: 15;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: opacity .3s;
+}
+
+#menu-account i{
+    color: black;
+}
+
+#info-account{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    border-bottom: 1px solid rgb(75, 75, 75);
+}
+
+.image-account{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account{
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.content-info{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name{
+    width: 100%;
+    height: 50%;
+}
+
+.user-name h2{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.email{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: end;
+}
+
+.email p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.closet-account{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.options-account{
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 5px;
+    padding-top: 10px;
+    list-style: none;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.options-account li{
+    width: 100%;
+    border-radius: 7px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.options-account li:hover{
+    background-color: rgba(214, 214, 214, .2);
+}
+
+#out{
+    padding: 0;
+    color: rgb(255, 71, 71);
+}
+
+
+@media (max-width: 665px){
+    #search{
+        display: none;
+        width: 0px;
+    }
+
+    #content-icon-search{
+        background-color: transparent;
+        transform: translateX(260%);
+    }
+
+    #element:hover{
+        transform: translateY(0px);
+        box-shadow: 0px 0px 0px transparent;
+    }
+
+    #bars:hover{
+        background-color: transparent;
+    }
+
+    .mision-vision, .valores, .otros{
+        height: auto;
+    }
+}
+
+@media (max-width: 1215px){
+    .otros{
+        height: auto;
+    }
+}
+
+@media (max-width: 405px){
+    .redes{
+        width: 100%;
+    }
+}
+
